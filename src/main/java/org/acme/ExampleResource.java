@@ -11,6 +11,6 @@ public class ExampleResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "Hola, esto es una prueba de ci cd, parece que va el ci, y ahora el cd, pespes es satan encarnado";
+        return "Hola, esto es una prueba de ci cd, parece que va el ci, y ahora el cd";
     }
 }
