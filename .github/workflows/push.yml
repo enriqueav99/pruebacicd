@@ -30,7 +30,7 @@ jobs:
           distribution: temurin
 
       - name: Construir la app quarkus
-        run: ./mvnw clean package      deployment.apps/deployment
+        run: ./mvnw clean package
 
       - name: log a dockerhubb
         uses: docker/login-action@v2
@@ -49,4 +49,6 @@ jobs:
         with:
           config: ${{ secrets.KUBE_CONFIG_DATA }}
           version: latest
+      - name: hacer el cd en gke
+        run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:latest -n nsaludo
 
