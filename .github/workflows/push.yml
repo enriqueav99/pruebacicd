@@ -43,12 +43,14 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:latest
+          tag_with_ref: true
+          ag_with_sha: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
       - name: Actualizar gke
         uses: myrotvorets/kubectl-action@2.0.0
         with:
           config: ${{ secrets.KUBE_CONFIG_DATA }}
           version: latest
       - name: hacer el cd en gke
-        run: kubectl set image deployment.apps/deploymentttt saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:latest -n nsaludo
+        run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:latest -n nsaludo
 
