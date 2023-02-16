@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  namespace: nsaludo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: saludo
+  template:
+    metadata:
+      labels:
+        app: saludo
+    spec:
+      containers:
+        - name: saludo-quarkus
+          image: enriqueav99/pruebacicd:latest
+          ports:
+            - containerPort: 8080
