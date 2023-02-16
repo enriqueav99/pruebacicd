@@ -52,5 +52,5 @@ jobs:
           config: ${{ secrets.KUBE_CONFIG_DATA }}
           version: latest
       - name: hacer el cd en gke
-        run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:latest -n nsaludo
+        run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsaludo
 
