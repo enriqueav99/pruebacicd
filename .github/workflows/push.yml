@@ -48,7 +48,7 @@ jobs:
           ag_with_sha: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
       - name: instalar helm
-        uses: azure/setup-helm@3
+        uses: azure/setup-helm@2
 
       - name:
         run: helm install chart-prueba ./java-chart
