@@ -49,6 +49,10 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
       - name: instalar helm
         uses: azure/setup-helm@2
+        with:
+          version: latest
+          token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
+          id: install
 
       - name:
         run: helm install chart-prueba ./java-chart
