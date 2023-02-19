@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  namespace: {{.Values.nombreNs}}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{.Values.nombreApp}}
+  template:
+    metadata:
+      labels:
+        app: {{.Values.nombreApp}}
+    spec:
+      containers:
+        - name: saludo-quarkus
+          image: {{.Values.imagen}}
+          ports:
+            - containerPort: {{.Values.puertoApp}}

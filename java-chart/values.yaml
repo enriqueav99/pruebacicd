@@ -1,0 +1,5 @@
+imagen: {{env imagen}}
+nombreNs: nsaludo
+tipoSvc: LoadBalancer
+puertoApp: 8080
+nombreApp: saludo
