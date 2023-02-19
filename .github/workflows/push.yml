@@ -46,15 +46,13 @@ jobs:
           push: true
           tag_with_ref: true
           ag_with_sha: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
-      - name: instalar helm
-        uses: azure/setup-helm
-        with:
-          version: v3.11.1
-          token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
-          id: install
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:stable
 
-      - name:
-        run: helm install chart-prueba ./java-chart
-        env:
-          imagen: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
+      - name: Log al cluster gke
+        uses: myrotvorets/kubectl-action@2.0.0
+        with:
+          config: ${{ secrets.KUBE_CONFIG_DATA }}
+          version: latest
+      - name: hacer el cd en gke
+        run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:stable -n nsaludo
+
