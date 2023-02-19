@@ -48,7 +48,7 @@ jobs:
           ag_with_sha: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
       - name: instalar helm
-        uses: azure/setup-helm@2
+        uses: azure/setup-helm@3
         with:
           version: v3.11.1
           token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
