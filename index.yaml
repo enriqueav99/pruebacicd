@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  java-chart:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-02-20T00:18:42.620629+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 43b59cd0c64d001e36f3598f31f29643434a4a1d8751f1ef4056e38201844f5b
+    name: java-chart
+    type: application
+    urls:
+    - https://storage.googleapis.com/enriqueav99-repository/java-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-02-20T00:18:42.618849+01:00"
