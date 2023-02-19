@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: saludo-quarkus
-          image: {{.Values.imagen}}
+          image: "{{.Values.imagen.usuario}}/{{.Values.imagen.nombre}}:{{.Values.imagen.tag}}"
           ports:
             - containerPort: {{.Values.puertoApp}}
