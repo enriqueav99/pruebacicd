@@ -56,12 +56,12 @@ jobs:
           value: ${{github.sha}}
           commitChange: false
 
-      - name: Hacer upgrade en hrlm
+      - name: Hacer upgrade en helm
         uses: WyriHaximus/github-action-helm3@3.x
         with:
           exec: helm upgrade mi-chart ./java-chart -n nsaludo
 
 
-      - name: hacer el cd en gke
-        run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsaludo
+      #- name: hacer el cd en gke
+        #run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsaludo
 
