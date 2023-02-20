@@ -5,4 +5,4 @@ nombreApp: saludo
 imagen:
   usuario: enriqueav99
   nombre: pruebacicd
-  tag: stable
+  tag: $tag

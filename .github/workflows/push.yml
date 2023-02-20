@@ -49,11 +49,10 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
 
       - name: actualizo la version del chart
-        uses: fjogeleit/yaml-update-action@main
+        uses: datamonsters/replace-action
         with:
-          valueFile: pruebacdci/java-chart/values.yaml
-          propertyPath: imagen.tag
-          value: ${{github.sha}}
+          files: java-chart/values.yaml
+          replacements: $tag=${{github.sha}}
 
       - name: hacer el cd en gke
         run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsaludo
