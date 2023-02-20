@@ -56,6 +56,15 @@ jobs:
           value: ${{github.sha}}
           commitChange: false
 
+      - name: Hacer upgrade en hrlm
+        uses: deliverybot/helm@master
+        with:
+          namespace: nsaludo
+          chart: java-chart
+          version: ${{github.sha}}
+          release: ${{github.sha}}
+
+
       - name: hacer el cd en gke
         run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsaludo
 
