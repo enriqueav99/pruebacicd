@@ -46,15 +46,15 @@ jobs:
           push: true
           tag_with_ref: true
           ag_with_sha: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{git.sha}}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
 
       - name: actualizo la version del chart
         uses: fjogeleit/yaml-update-action@main
         with:
           valueFile: java-chart/values.yaml
           propertyPath: imagen.tag
-          value: ${{git.sha}}
+          value: ${{github.sha}}
 
       - name: hacer el cd en gke
-        run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{git.sha}} -n nsaludo
+        run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsaludo
 
