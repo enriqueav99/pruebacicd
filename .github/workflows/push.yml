@@ -57,12 +57,9 @@ jobs:
           commitChange: false
 
       - name: Hacer upgrade en hrlm
-        uses: deliverybot/helm@master
+        uses: WyriHaximus/github-action-helm3@v3
         with:
-          namespace: nsaludo
-          chart: java-chart
-          version: ${{github.sha}}
-          release: ${{github.sha}}
+          exec: helm upgrade mi-chart ./java-chart -n nsaludo
 
 
       - name: hacer el cd en gke
