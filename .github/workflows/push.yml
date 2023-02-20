@@ -57,7 +57,7 @@ jobs:
           commitChange: false
 
       - name: Hacer upgrade en hrlm
-        uses: WyriHaximus/github-action-helm3@1
+        uses: WyriHaximus/github-action-helm3@3.x
         with:
           exec: helm upgrade mi-chart ./java-chart -n nsaludo
 
