@@ -51,7 +51,7 @@ jobs:
       - name: actualizo la version del chart
         uses: fjogeleit/yaml-update-action@main
         with:
-          valueFile: java-chart/values.yaml
+          valueFile: pruebacdci/java-chart/values.yaml
           propertyPath: imagen.tag
           value: ${{github.sha}}
 
