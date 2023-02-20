@@ -49,7 +49,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}}
 
       - name: actualizo la version del chart
-        uses: ./.github/actions/replace
+        uses: ./java-chart/values.yml/replace
         with:
           files: java-chart/values.yaml
           replacements: $tag=${{github.sha}}
