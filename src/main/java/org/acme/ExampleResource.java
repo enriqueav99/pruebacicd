@@ -12,6 +12,6 @@ public class ExampleResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
         return "Hola buenas tardes, esto es una prueba de CI/CD con github actions con cache, " +
-                "esto esta desglegado en kuberentes dentro de google cloud. El cd es actualizando el chart de helm. Hola Juanpa";
+                "esto esta desglegado en kuberentes dentro de google cloud. El cd es actualizando el chart de helm.";
     }
 }
