@@ -1,8 +1,14 @@
 nombreNs: nsaludo
 tipoSvc: LoadBalancer
-puertoApp: 8081
+puertoApp: 8080
 nombreApp: saludo
 imagen:
   usuario: enriqueav99
   nombre: pruebacicd
   tag: stable
+
+preInstall:
+  createNamespace: true
+
+postInstall:
+  createDeployment: true
