@@ -51,8 +51,10 @@ jobs:
       - name: actualizo la version del chart
         uses: fjogeleit/yaml-update-action@main
         with:
-          files: ./java-chart/values.yaml
-          replacements: $tag=${{github.sha}}
+          valueFile: ./java-chart/values.yaml
+          propertyPath: imagen.tag
+          value: ${{github.sha}}
+          commitChange: false
 
       - name: hacer el cd en gke
         run: kubectl set image deployment.apps/deployment saludo-quarkus=${{ secrets.DOCKERHUB_USERNAME }}/pruebacicd:${{github.sha}} -n nsaludo
