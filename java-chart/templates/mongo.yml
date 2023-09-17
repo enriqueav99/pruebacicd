@@ -1,6 +1,7 @@
 apiVersion: mongodbcommunity.mongodb.com/v1
 kind: MongoDBCommunity
 metadata:
+  namespace: nasaludo
   name: mongo-crd
   labels:
     app: mimongo
@@ -34,7 +35,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: system-password
-  namespace: nsmongo
+  namespace: nsaludo
 type: Opaque
 stringData:
   password: manager
