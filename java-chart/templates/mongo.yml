@@ -1,7 +1,7 @@
 apiVersion: mongodbcommunity.mongodb.com/v1
 kind: MongoDBCommunity
 metadata:
-  namespace: nasaludo
+  namespace: nsaludo
   name: mongo-crd
   labels:
     app: mimongo
