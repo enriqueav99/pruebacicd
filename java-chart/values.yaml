@@ -6,4 +6,4 @@ imagen:
   usuario: enriqueav99
   nombre: pruebacicd
   tag: stable
-replicas: 5
+replicas: 3
